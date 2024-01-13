@@ -2,7 +2,7 @@ import React from "react";
 
 import { NUM_LETTERS } from "../../constants";
 
-function GuessForm({ onGuessSubmit }) {
+function GuessForm({ onGuessSubmit, disabled }) {
   const [guess, setGuess] = React.useState("");
 
   const handleGuessSubmit = (e) => {
@@ -25,6 +25,7 @@ function GuessForm({ onGuessSubmit }) {
         onChange={(e) => {
           setGuess(e.target.value.toUpperCase());
         }}
+        disabled={disabled}
       />
     </form>
   );
