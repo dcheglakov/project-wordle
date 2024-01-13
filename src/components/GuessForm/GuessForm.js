@@ -8,7 +8,6 @@ function GuessForm({ onGuessSubmit, disabled }) {
   const handleGuessSubmit = (e) => {
     e.preventDefault();
     onGuessSubmit(guess);
-    console.log({ guess });
     setGuess("");
   };
 
@@ -16,6 +15,7 @@ function GuessForm({ onGuessSubmit, disabled }) {
     <form className="guess-input-wrapper" onSubmit={handleGuessSubmit}>
       <label htmlFor="guess-input">Enter guess:</label>
       <input
+        required
         id="guess-input"
         type="text"
         value={guess}
