@@ -5,8 +5,8 @@ function Guess({ guesses }) {
     <div className="guess-results">
       {guesses.map((guess) => (
         <p className="guess" key={crypto.randomUUID()}>
-          {guess.map(({ id, letter, status }) => (
-            <span key={id} className={`cell ${status}`}>
+          {guess.map(({ letter, status }) => (
+            <span key={crypto.randomUUID()} className={`cell ${status}`}>
               {letter}
             </span>
           ))}
