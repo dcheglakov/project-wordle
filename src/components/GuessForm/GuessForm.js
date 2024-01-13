@@ -1,18 +1,19 @@
 import React from "react";
 
-const NUM_LETTERS = 5;
+import { NUM_LETTERS } from "../../constants";
 
-function GuessForm() {
+function GuessForm({ onGuessSubmit }) {
   const [guess, setGuess] = React.useState("");
+
+  const handleGuessSubmit = (e) => {
+    e.preventDefault();
+    onGuessSubmit(guess);
+    console.log({ guess });
+    setGuess("");
+  };
+
   return (
-    <form
-      className="guess-input-wrapper"
-      onSubmit={(e) => {
-        e.preventDefault();
-        console.log({ guess });
-        setGuess("");
-      }}
-    >
+    <form className="guess-input-wrapper" onSubmit={handleGuessSubmit}>
       <label htmlFor="guess-input">Enter guess:</label>
       <input
         id="guess-input"
